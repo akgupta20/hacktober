@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter</title>
+    <style>
+        body {
+            padding: 100px 90px;
+            border: 2px solid rgb(255, 0, 0);
+            background-color: rgb(197, 231, 185);
+
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        #container {
+            text-align: center;
+            display: flex;
+            justify-content: center;
+
+        }
+
+        .input-field {
+            margin: 30px 30px;
+            font-size: 25px;
+            box-shadow: 5px 10px 40px blue;
+            height: 100px;
+        }
+
+        input {
+            font-size: 30px;
+            height: 50px;
+            width: 60%;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Temperature Converter</h2>
+    <div id="container">
+        <div class="input-field">
+            <label for="cel">Celcius</label>
+            <br>
+            <input type="number" value="0" id="cel">
+        </div>
+        <div class="input-field">
+            <label for="fah">Fahrenheit</label>
+            <br>
+            <input type="number" value="32" id="fah">
+        </div>
+    </div>
+
+
+    <script>
+        let cel = document.getElementById("cel");
+        let fah = document.getElementById("fah");
+        cel.addEventListener('input', function () {
+            let c = this.value;
+            let f = (c * 9 / 5) + 32;
+            if (!Number.isInteger(f))
+                fah.value = f.toFixed(4);
+            else fah.value = f;
+            // console.log("ji");
+        })
+        fah.addEventListener('input', function () {
+            let f = this.value;
+            let c = (f - 32) * 5 / 9;
+            if (!Number.isInteger(c))
+                cel.value = c.toFixed(4);
+            else cel.value = c;
+            
+            // console.log("ji");
+        })
+
+    </script>
+</body>
+
+</html>
